@@ -1,0 +1,680 @@
+<!DOCTYPE html> <!--Dark Mode compatibility (i.e., logos need to invert in CSS)-->
+<!--Nav menu logo, linkedin & github logo/cite the source link, arrow icons, -->
+<!--Add the rest of the sections to the hamburger nav-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo-container">
+            <div class="logo">Benjamin F. Green</div>
+            <canvas id="lissajous" width="40" height="40"></canvas>
+        </div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#gear">Gear</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav id="hamburger-nav">
+        <div class="logo">Benjamin F. Green</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li> 
+                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+                <li><a href="#gear" onclick="toggleMenu()">Gear</a></li>
+                <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </div>
+        </div>
+    </nav>
+    <section id="profile">
+        <div class="section_pic-container">
+            <img src="./assets/Benjamin F. Green pfp.png" 
+            alt="Benjamin F. Green profile picture"
+            />
+        </div>
+
+        <div class="section__text">
+            <!--<p class="section__text__p1">*****</p>-->
+            <h1 class="title">Benjamin F. Green</h1>
+            <!--<p class="section__text__p2">Audio Engineer</p>-->
+            <div class="btn-container">
+                <button 
+                    class="btn btn-color-2" 
+                    onclick="window.open('./assets/Benjamin F. Green - CV.pdf')"
+                >
+                    Download Resume
+                </button>
+                <button 
+                    class="btn btn-color-1" 
+                    onclick="location.href='./#contact'"
+                >
+                    Contact Info
+                </button>
+            </div>
+            <div id="socials-container">
+                <img 
+                src="./assets/linkedin.png" 
+                alt="My LinkedIn profile"
+                title="LinkedIn logo from brand.linkedin.com/downloads"
+                class="icon" 
+                onclick="location.href='https://linkedin.com/in/benjamin-green-359818254'"
+                />
+                <img 
+                src="./assets/github.png" 
+                alt="My GitHub profile"
+                title="GitHub logo from github.com/logos"
+                class="icon github-icon" 
+                onclick="location.href='https://github.com/benjaminfgreen'"
+                />
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <p class="section__text__p1">
+            Get To Know More Here
+        </p>
+        <h1 class="title">
+            About Me
+        </h1>
+    <!--    <div class="section-container">
+            <div class="section__pic-container">
+                <img src="./assets/about-pic.png" 
+                alt="Profile picture"
+                class="about-pic"
+                />
+            </div> -->
+            <div class="about-details-container">
+                <div class="about-container">
+                    <div class="details-container">
+                        <img src="./assets/experience.png" 
+                        alt="experience icon"
+                        class="icon"
+                        />
+                        <h3>Experience</h3>
+                        <p>10+ years <br />Audio Engineering</p>
+                    </div>
+                    <div class="details-container">
+                        <img src="./assets/education.png" 
+                        alt="education icon"
+                        class="icon"
+                        />
+                        <h3>Education</h3>
+                        <p>B.S. Music Technology<br />UNC Asheville</p>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <p>My journey as an audio engineer began at the age of 13 in my bedroom, where I quickly discovered that working as an engineer in the recording studio was my goal. Since then, my passion for audio, electronics, and problem-solving has only grown stronger. <br
+                        /> <br />While pursuing my degree at the University of North Carolina at Asheville, I served as the Recording Studio and Mastering Studio Manager under the mentorship of Jude Weinberg and Carolina Perez. This experience was pivotal in shaping my development as an audio professional. 
+                        From working in the studio to mixing live performances at front-of-house, my skills flourished, and my passion continued to grow.
+                        <br /> <br />My inspiration draws heavily from the 1960s and ’70s, where psychedelia was at the forefront of the pop and contemporary music scene. I aim to take that vision and intertwine it with today's modern production styles.
+                        <br /> <br />One huge accomplishment of mine is completing an undergraduate research project titled "Digital Simulation of the Cochlear Implant's Signal Processing Algorithm Modeled for Speech and Investigation of Methods to Improved Musical Cognition and Recognition"
+                        <br /> <br />This work earned me a Distinction in Music Technology and Undergraduate Researcher.
+                        <br /> <br />I am now pursuing my B.S. in Electrical Engineering while working as the Lead AV Specialist at Harrisburg United Methodist Church and continuing my work as a freelance recording and mixing engineer at my home studio.
+                        <br /> <br />Below, you'll find a selection of personal projects, including details about the gear used during the production process.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <img 
+        src="./assets/arrow.png" 
+        alt="Arrow icon" 
+        class="icon arrow"
+        onclick="location.href='./#certifications'"
+        />
+    </section>
+    <!--Add photos-->
+    <!--CERTIFICATIONS AFTER EXPERIENCE-->
+    <section id="certifications">
+        <!--<p class="section__text__p1">Current</p>-->
+        <h1 class="title">Certifications</h1>
+        <div class="certifications-details-container">
+            <div class="about-container">
+                <div class="details-container">
+                    <h2 class="certifications-sub-title">All</h2>
+                    <div class="article-container">
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Audinate - Dante Levels 1-3</h3>
+                                <p>Certified</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Allen & Heath - dLive Engineer</h3>
+                                <p>Certified</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Biamp - Tesira Core Concepts & TesiraFORTÉ</h3>
+                                <p>Certified</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Extron - AV Associate</h3>
+                                <p>Certified</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Shure - Microflex</h3>
+                                <p>Certified</p>
+                            </div>
+                        </article> 
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>UNC Charlotte - Scissor Lift</h3>
+                                <p>Certified</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img 
+        src="./assets/arrow.png" 
+        alt="Arrow icon" 
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+        />
+    </section>
+    <!--Add photos-->
+    <section id="experience">
+        <p class="section__text__p1">Explore My</p>
+        <h1 class="title">Experience</h1>
+        <div class="experience-details-container">
+            <div class="about-container">
+                <div class="details-container">
+                    <h2 class="experience-sub-title">Audio Engineering</h2>
+                    <div class="article-container">
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Recording</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Mixing</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Mastering</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Sound Design</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Pro Tools, Ableton Live, Logic Pro</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="details-container">
+                    <h2 class="experience-sub-title">Other</h2>
+                    <div class="article-container">
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Studio Management</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>AV for Live Entertainment</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Acoustic Measurement</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>AoIP</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img 
+                            src="./assets/checkmark.png" 
+                            alt="experience icon" 
+                            class="icon"
+                            />
+                            <div>
+                                <h3>Max/MSP</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img 
+        src="./assets/arrow.png" 
+        alt="Arrow icon" 
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+        />
+    </section>
+    <!--Add photos-->
+    <section id="projects"> <!--Add descriptions for each project (i.e., name and process)-->
+        <p class="section__text__p1">Browse My</p>
+        <h1 class="title">Projects</h1>
+        <div class="experience-details-container">
+            <div class="about-containers">
+            <div class="details-container color-container">
+                <!--<div class="article-container">
+                    <img 
+                    src="./assets/projects-1.png" 
+                    alt="Project 1" 
+                    class="project-img"
+                    />
+                </div>-->
+                <h2 class="experience-sub-title project-title">Warped</h2>
+                <!--<h1>*****</h1>-->
+                <div class="audio-container">
+                    <audio controls>
+                        <source src="./assets/audio/Warped.BG.2448.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+            <div class="details-container color-container">
+                <!--<div class="article-container">
+                    <img 
+                    src="./assets/projects-2.png" 
+                    alt="Project 2" 
+                    class="project-img"
+                    />
+                </div>-->
+                <h2 class="experience-sub-title project-title">Space Jazz</h2>
+                <!--<h1>*****</h1>-->
+                <div class="audio-container">
+                    <audio controls>
+                        <source src="./assets/audio/SpaceJazz.BG.2448.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+            <div class="details-container color-container">
+                <!--<div class="article-container">
+                    <img 
+                    src="./assets/projects-3.png" 
+                    alt="Project 3" 
+                    class="project-img"
+                    />
+                </div>-->
+                <h2 class="experience-sub-title project-title">Hexagon Sun</h2>
+                <!--<h1>*****</h1>-->
+                <div class="audio-container">
+                    <audio controls>
+                        <source src="./assets/audio/HexagonSun.BG.2448.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        <img 
+            src="./assets/arrow.png" 
+            alt="Arrow icon" 
+            class="icon arrow"
+            onclick="location.href='./#gear'"
+        />
+    </section>
+    <!--Add photos-->
+    <section id="gear"> 
+        <h1 class="title">Gear</h1> <br />
+        <div class="gear-dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                Converters/DAW <span class="dropdown-arrow">+</span>
+            </button>
+            <div class="dropdown-content">
+                <p>
+                    Lynx Aurora(n) 16-Channel <br>
+                    Scarlett 18i20 <br>
+                    Boss BR-600 <br>
+                    Macbook Pro <br>
+                    Windows PC <br>
+                    Pro Tools Studio <br>
+                    Ableton Live 11 Suite <br>
+                    Logic Pro
+                </p>
+            </div>
+        </div>
+        <div class="gear-dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                Tape <span class="dropdown-arrow">+</span>
+            </button>
+            <div class="dropdown-content">
+                <p>
+                    TEAC a3300s
+                </p>
+            </div>
+        </div>
+        <div class="gear-dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                Monitoring <span class="dropdown-arrow">+</span>
+            </button>
+            <div class="dropdown-content">
+                <p>
+                    Yamaha HS8 <br>
+                    PreSonus Temblor T10 <br>
+                    Avantone MixCube <br>
+                    KRK Rokit 5
+                </p>
+            </div>
+        </div>
+        <div class="gear-dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                Outboard <span class="dropdown-arrow">+</span>
+            </button>
+            <div class="dropdown-content">
+                <p>
+                    API 500-8 <br>
+                    Radial Workhorse Powerhouse <br>
+                    API 512c (2) <br>
+                    Neve 1073lb <br>
+                    Hairball Lola <br>
+                    dbx 165 <br>
+                    dbx 166xl <br>
+                    dbx 560a <br>
+                    dbx 530 <br>
+                    Klark Teknik EQP-KT (2) <br>
+                    DIYRE Colour Palette (2) <br>
+                    Roland RE-201 Space Echo
+                </p>
+            </div>
+        </div>
+        <div class="gear-dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                Amplifiers <span class="dropdown-arrow">+</span>
+            </button>
+            <div class="dropdown-content">
+                <p>
+                    VOX AC30HW <br>
+                    Fender Twin Reverb
+                </p>
+            </div>
+        </div>
+        <div class="gear-dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                Microphones <span class="dropdown-arrow">+</span>
+            </button>
+            <div class="dropdown-content">
+                <p>
+                    Shure SM57 (2) <br>
+                    EV 635a <br>
+                    EV SE7 (2) <br>
+                    EV RE-20 <br>
+                    Sennheiser 421MD II <br>
+                    Avantone CV-12 <br>
+                    Telefunken M80
+                </p>
+            </div>
+        </div>
+        <div class="gear-dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                Pedals <span class="dropdown-arrow">+</span>
+            </button>
+            <div class="dropdown-content">
+                <p>
+                    BOSS NS-2 <br>
+                    BOSS TU-3 <br>
+                    BOSS BD-2 <br>
+                    BOSS DD-20 <br>
+                    BOSS GT-100 <br>
+                    BOSS GR-55 w/ GR-3 Pickup <br>
+                    BOSS AB-2 <br>
+                    MXR DynaComp <br>
+                    MXR Stereo Chorus <br>
+                    EHX Small Stone Phaser V4 <br>
+                    EHX Holy Grail Big Box <br>
+                    Diamond Vibrato <br>
+                    Earthquaker Devices Terminal <br>
+                    Crybaby Wah <br>
+                    Tampco Gazelle
+                </p>
+            </div>
+        </div>
+        <div class="gear-dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                Misc. <span class="dropdown-arrow">+</span>
+            </button>
+            <div class="dropdown-content">
+                <p>
+                    Radial J48 Active DI <br>
+                    Radial ProRMP Passive Reamp <br>
+                    Radial JS3 Passive Splitter <br>
+                    TC Helicon C1 VoiceTone <br>
+                    CIOKS DC10 Isolated Power Supply
+                </p>
+            </div>
+        </div>
+        <div class="gear-dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                Instruments <span class="dropdown-arrow">+</span>
+            </button>
+            <div class="dropdown-content">
+                <p>
+                    Roland Juno-106 <br>
+                    Roland JV-1080 <br>
+                    Sequential Circuits Pro-One <br>
+                    Korg Minilogue <br>
+                    Korg Volca Drum <br>
+                    Rickenbacker 330 <br>
+                    Rickenbacker 325 <br>
+                    Squire Jazzmaster <br>
+                    Hofner Ignition <br>
+                    Fender Precision <br>
+                    Ludwig Neusonic <br>
+                    Ludwig Acrolite
+                </p>
+            </div>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <img src="./assets/studioview1.png" alt="Studio view 1" class="carousel-image" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/studioview2.png" alt="Studio view 2" class="carousel-image" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/studioview3.png" alt="Studio view 3" class="carousel-image" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/studioview4.png" alt="Studio view 4" class="carousel-image" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/studioview5.png" alt="Studio view 5" class="carousel-image" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/studioview6.png" alt="Studio view 6" class="carousel-image" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/studioview7.png" alt="Studio view 7" class="carousel-image" />
+                </div>
+            </div>
+            <button class="carousel-button prev" onclick="moveCarousel(-1)">&lt;</button>
+            <button class="carousel-button next" onclick="moveCarousel(1)">&gt;</button>
+            <div class="carousel-dots">
+            </div>
+        </div>
+        <img 
+        src="./assets/arrow.png" 
+        alt="Arrow icon" 
+        class="icon arrow"
+        onclick="location.href='./#services'"
+        />
+    </section>
+    <!--Add photos-->
+    <section id="services">
+        <h1 class="title">Services</h1> <br /> <br />
+        <h1 class="section__text__p1">Mix Rate</h1>
+        <p class="section__text__p2">Flat rate per track: $50.00</p>
+        <br />
+        <h1 class="section__text__p1">Mastering Rate</h1>
+        <p class="section__text__p2">Flat rate per track: $75.00</p>
+        <br />
+        <h1 class="section__text__p1">Sound Design Rate</h1>
+        <p class="section__text__p2">Flat rate per package: $100.00</p>
+    <img 
+        src="./assets/arrow.png" 
+        alt="Arrow icon" 
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+    />
+    </section>
+    <!--Add photos-->
+    <section id="contact">
+        <p class="section__text__p1">Get in Touch</p>
+        <h1 class="title">Contact Me</h1>
+        <div class="contact-info-upper-container">
+            <div class="contact-info-container">
+                <img 
+                src="./assets/email.png" 
+                alt="Email icon"
+                class="icon contact-icon"
+                />
+                <p><a href="mailto:benjaminforrestg@gmail.com">benjaminforrestg@gmail.com</a></p>
+            </div>
+            <div class="contact-info-container">
+                <img 
+                src="./assets/linkedin.png" 
+                alt="LinkedIn icon"
+                title="LinkedIn logo from brand.linkedin.com/downloads"
+                class="icon contact-icon"
+                />
+                <p><a href="https://www.linkedin.com/in/benjamin-green-359818254">LinkedIn</a></p>
+            </div>
+        </div>
+    </section>
+    <!--Add photos-->
+    <footer>
+        <nav>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#gear">Gear</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <p>Copyright &#169; 2024 Benjamin F. Green. All Rights Reserved.</p>
+    </footer>
+    <!--Add photos-->
+    <script src="script.js"></script>
+    <script src="audio.js"></script>
+</body>
+</html>
