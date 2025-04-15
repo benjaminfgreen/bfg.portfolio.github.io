@@ -93,8 +93,19 @@
     .experience-sub-title {
         font-size: 1.25rem;
     }
+    #hamburger-nav .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
     .logo {
         font-size: 1.5rem;
+    }
+
+    #mobile-lissajous {
+        display: inline-block;
+        vertical-align: middle;
     }
     .nav-links {
         flex-direction: column;

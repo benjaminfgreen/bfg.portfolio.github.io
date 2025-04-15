@@ -45,43 +45,51 @@ function goToSlide(index) {
 setInterval(() => moveCarousel(1), 8000);
 
 // Lissajous figure animation
-const canvas = document.getElementById('lissajous');
-const ctx = canvas.getContext('2d');
-const width = canvas.width;
-const height = canvas.height;
+function initLissajous(canvasId) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
 
-let time = 0;
-const centerX = width / 2;
-const centerY = height / 2;
-const radius = 15;
-const frequency1 = 3;
-const frequency2 = 2;
+    const ctx = canvas.getContext('2d');
+    const width = canvas.width;
+    const height = canvas.height;
 
-function drawLissajous() {
-    ctx.clearRect(0, 0, width, height);
-    
-    ctx.beginPath();
-    ctx.strokeStyle = 'rgba(0, 180, 0, 0.6)';
-    ctx.lineWidth = 1.5;
-    
-    for (let t = 0; t <= 200; t++) {
-        const angle = (t / 200) * Math.PI * 2;
-        const x = centerX + radius * Math.sin(frequency1 * angle + time);
-        const y = centerY + radius * Math.sin(frequency2 * angle + time * 0.5);
+    let time = 0;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const radius = 15;
+    const frequency1 = 3;
+    const frequency2 = 2;
+
+    function draw() {
+        ctx.clearRect(0, 0, width, height);
         
-        if (t === 0) {
-            ctx.moveTo(x, y);
-        } else {
-            ctx.lineTo(x, y);
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(0, 180, 0, 0.6)';
+        ctx.lineWidth = 1.5;
+        
+        for (let t = 0; t <= 200; t++) {
+            const angle = (t / 200) * Math.PI * 2;
+            const x = centerX + radius * Math.sin(frequency1 * angle + time);
+            const y = centerY + radius * Math.sin(frequency2 * angle + time * 0.5);
+            
+            if (t === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
         }
+        
+        ctx.stroke();
+        time += 0.02;
+        requestAnimationFrame(draw);
     }
-    
-    ctx.stroke();
-    time += 0.02;
-    requestAnimationFrame(drawLissajous);
+
+    draw();
 }
 
-drawLissajous();
+// Initialize both Lissajous figures
+initLissajous('lissajous');
+initLissajous('mobile-lissajous');
 
 // Dropdown functionality
 function toggleDropdown(button) {

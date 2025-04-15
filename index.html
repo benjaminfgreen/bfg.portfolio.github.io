@@ -28,7 +28,10 @@
         </div>
     </nav>
     <nav id="hamburger-nav">
-        <div class="logo">Benjamin F. Green</div>
+        <div class="logo-container">
+            <div class="logo">Benjamin F. Green</div>
+            <canvas id="mobile-lissajous" width="40" height="40"></canvas>
+        </div>
         <div class="hamburger-menu">
             <div class="hamburger-icon" onclick="toggleMenu()">
                 <span></span>
@@ -71,20 +74,22 @@
                 </button>
             </div>
             <div id="socials-container">
-                <img 
-                src="./assets/linkedin.png" 
-                alt="My LinkedIn profile"
-                title="LinkedIn logo from brand.linkedin.com/downloads"
-                class="icon" 
-                onclick="location.href='https://linkedin.com/in/benjamin-green-359818254'"
-                />
-                <img 
-                src="./assets/github.png" 
-                alt="My GitHub profile"
-                title="GitHub logo from github.com/logos"
-                class="icon github-icon" 
-                onclick="location.href='https://github.com/benjaminfgreen'"
-                />
+                <a href="https://linkedin.com/in/benjamin-green-359818254" target="_blank" rel="noopener noreferrer">
+                    <img 
+                    src="./assets/linkedin.png" 
+                    alt="My LinkedIn profile"
+                    title="LinkedIn logo from brand.linkedin.com/downloads"
+                    class="icon" 
+                    />
+                </a>
+                <a href="https://github.com/benjaminfgreen" target="_blank" rel="noopener noreferrer">
+                    <img 
+                    src="./assets/github.png" 
+                    alt="My GitHub profile"
+                    title="GitHub logo from github.com/logos"
+                    class="icon github-icon" 
+                    />
+                </a>
             </div>
         </div>
     </section>
@@ -125,10 +130,9 @@
                     <p>My journey as an audio engineer began at the age of 13 in my bedroom, where I quickly discovered that working as an engineer in the recording studio was my goal. Since then, my passion for audio, electronics, and problem-solving has only grown stronger. <br
                         /> <br />While pursuing my degree at the University of North Carolina at Asheville, I served as the Recording Studio and Mastering Studio Manager under the mentorship of Jude Weinberg and Carolina Perez. This experience was pivotal in shaping my development as an audio professional. 
                         From working in the studio to mixing live performances at front-of-house, my skills flourished, and my passion continued to grow.
-                        <br /> <br />My inspiration draws heavily from the 1960s and ’70s, where psychedelia was at the forefront of the pop and contemporary music scene. I aim to take that vision and intertwine it with today's modern production styles.
-                        <br /> <br />One huge accomplishment of mine is completing an undergraduate research project titled "Digital Simulation of the Cochlear Implant's Signal Processing Algorithm Modeled for Speech and Investigation of Methods to Improved Musical Cognition and Recognition"
-                        <br /> <br />This work earned me a Distinction in Music Technology and Undergraduate Researcher.
+                        <br /> <br />One huge accomplishment of mine is completing an undergraduate research project titled "Digital Simulation of the Cochlear Implant's Signal Processing Algorithm Modeled for Speech and Investigation of Methods to Improve Musical Cognition and Recognition", published in the <i>UNC Asheville Journal of Undergraduate Research.</i> This work earned me a Distinction in Music Technology and Distinction as an Undergraduate Research Scholar.
                         <br /> <br />I am now pursuing my B.S. in Electrical Engineering while working as the Lead AV Specialist at Harrisburg United Methodist Church and continuing my work as a freelance recording and mixing engineer at my home studio.
+                        <br /> <br />My inspiration draws heavily from the 1960s and ’70s, where psychedelia was at the forefront of the pop and contemporary music scene. I aim to take that vision and intertwine it with today's modern production styles.
                         <br /> <br />Below, you'll find a selection of personal projects, including details about the gear used during the production process.
                     </p>
                 </div>
