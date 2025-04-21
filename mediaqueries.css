@@ -54,6 +54,17 @@
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         padding: 0;
     }
+
+    .carousel-dots {
+        bottom: 15px;
+        gap: 8px;
+        padding: 0 15px;
+    }
+
+    .carousel-dot {
+        min-width: 25px;
+        height: 3px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -146,6 +157,17 @@
     .gear-images-container {
         grid-template-columns: 1fr;
         gap: 0.5rem;
+    }
+
+    .carousel-dots {
+        bottom: 10px;
+        gap: 6px;
+        padding: 0 10px;
+    }
+
+    .carousel-dot {
+        min-width: 20px;
+        height: 2px;
     }
     .gear__section__pic-container {
         margin-bottom: 0.5rem;
