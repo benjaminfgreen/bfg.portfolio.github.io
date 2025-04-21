@@ -56,14 +56,18 @@
     }
 
     .carousel-dots {
-        bottom: 15px;
-        gap: 8px;
-        padding: 0 15px;
+        bottom: 30px;
+        gap: 10px;
+        padding: 8px 15px;
     }
 
     .carousel-dot {
-        min-width: 25px;
-        height: 3px;
+        min-width: 30px;
+        height: 5px;
+    }
+    
+    .carousel-dot.active {
+        height: 7px;
     }
 }
 
@@ -159,15 +163,33 @@
         gap: 0.5rem;
     }
 
+    .carousel-container {
+        margin: 1rem auto;
+    }
+
+    .carousel-slide {
+        padding: 0.5rem;
+    }
+
+    .carousel-image {
+        max-height: 60vh;
+        border-radius: 1rem;
+    }
+
     .carousel-dots {
-        bottom: 10px;
+        bottom: 15px;
         gap: 6px;
-        padding: 0 10px;
+        padding: 6px 10px;
+        max-width: calc(100% - 2rem);
     }
 
     .carousel-dot {
-        min-width: 20px;
-        height: 2px;
+        min-width: 25px;
+        height: 4px;
+    }
+    
+    .carousel-dot.active {
+        height: 6px;
     }
     .gear__section__pic-container {
         margin-bottom: 0.5rem;

@@ -8,6 +8,16 @@ function toggleMenu() {
 // Carousel functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
+const track = document.querySelector('.carousel-track');
+
+// Touch handling variables
+let touchStartX = 0;
+let touchEndX = 0;
+let isDragging = false;
+let startTranslateX = 0;
+let currentTranslateX = 0;
+let lastTranslateX = 0;
+let animationID = null;
 
 // Create dots
 const dotsContainer = document.querySelector('.carousel-dots');
@@ -27,22 +37,88 @@ function updateDots() {
     });
 }
 
+function setSlidePosition(position) {
+    track.style.transform = `translateX(${position}%)`;
+}
+
 function moveCarousel(direction) {
-    const track = document.querySelector('.carousel-track');
     currentSlide = (currentSlide + direction + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    setSlidePosition(-currentSlide * 100);
     updateDots();
 }
 
 function goToSlide(index) {
     currentSlide = index;
-    const track = document.querySelector('.carousel-track');
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    setSlidePosition(-currentSlide * 100);
     updateDots();
 }
 
+// Touch event handlers
+function handleTouchStart(event) {
+    isDragging = true;
+    touchStartX = event.touches[0].clientX;
+    startTranslateX = -currentSlide * 100;
+    lastTranslateX = startTranslateX;
+    cancelAnimationFrame(animationID);
+}
+
+function handleTouchMove(event) {
+    if (!isDragging) return;
+    
+    const currentX = event.touches[0].clientX;
+    const diff = currentX - touchStartX;
+    const slideWidth = track.clientWidth;
+    const percentageMoved = (diff / slideWidth) * 100;
+    
+    currentTranslateX = startTranslateX + percentageMoved;
+    
+    // Add resistance at the edges
+    if (currentTranslateX > 0) {
+        currentTranslateX = currentTranslateX * 0.3;
+    } else if (currentTranslateX < -(slides.length - 1) * 100) {
+        const overScroll = currentTranslateX + (slides.length - 1) * 100;
+        currentTranslateX = -(slides.length - 1) * 100 + (overScroll * 0.3);
+    }
+    
+    setSlidePosition(currentTranslateX);
+}
+
+function handleTouchEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    
+    const diff = currentTranslateX - lastTranslateX;
+    const threshold = 20; // Minimum percentage to trigger slide change
+    
+    if (Math.abs(diff) > threshold) {
+        if (diff > 0) {
+            moveCarousel(-1); // Swipe right
+        } else {
+            moveCarousel(1); // Swipe left
+        }
+    } else {
+        // Return to current slide if threshold not met
+        goToSlide(currentSlide);
+    }
+}
+
+// Add touch event listeners
+if (track) {
+    track.addEventListener('touchstart', handleTouchStart, { passive: true });
+    track.addEventListener('touchmove', handleTouchMove, { passive: true });
+    track.addEventListener('touchend', handleTouchEnd, { passive: true });
+}
+
 // Auto advance slides
-setInterval(() => moveCarousel(1), 8000);
+let autoAdvanceInterval = setInterval(() => moveCarousel(1), 8000);
+
+// Reset auto advance timer on user interaction
+function resetAutoAdvance() {
+    clearInterval(autoAdvanceInterval);
+    autoAdvanceInterval = setInterval(() => moveCarousel(1), 8000);
+}
+
+track.addEventListener('touchstart', resetAutoAdvance, { passive: true });
 
 // Lissajous figure animation
 function initLissajous(canvasId) {
