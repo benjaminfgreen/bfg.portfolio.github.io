@@ -76,7 +76,11 @@
     }
     footer nav {
         height: fit-content;
-        margin-bottom: 2rem;
+    }
+
+    footer .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
     }
     .about-containers, 
     .contact-info-upper-container, 

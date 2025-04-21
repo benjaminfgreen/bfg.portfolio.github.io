@@ -638,6 +638,7 @@ article .icon {
     object-fit: contain;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    border-radius: 2rem;
 }
 
 .carousel-image:hover {
@@ -826,8 +827,30 @@ article .icon {
 /* FOOTER SECTION */
 
 footer {
-    height: 26vh;
+    height: auto;
+    min-height: 26vh;
     margin: 0 1rem;
+    padding: 2rem 0;
+}
+
+footer .nav-links-container {
+    width: 100%;
+}
+
+footer .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
+}
+
+footer .nav-links li {
+    margin: 0;
+}
+
+footer p {
+    text-align: center;
 }
 
 footer p {
