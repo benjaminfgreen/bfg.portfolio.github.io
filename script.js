@@ -8,6 +8,7 @@ function toggleMenu() {
 // Carousel functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
+const container = document.querySelector('.carousel-container');
 const track = document.querySelector('.carousel-track');
 
 // Touch handling variables
@@ -55,6 +56,8 @@ function goToSlide(index) {
 
 // Touch event handlers
 function handleTouchStart(event) {
+    if (event.target.closest('.carousel-dots')) return; // Ignore touch on dots
+    
     isDragging = true;
     touchStartX = event.touches[0].clientX;
     startTranslateX = -currentSlide * 100;
@@ -64,22 +67,14 @@ function handleTouchStart(event) {
 
 function handleTouchMove(event) {
     if (!isDragging) return;
+    event.preventDefault(); // Prevent scrolling while swiping
     
     const currentX = event.touches[0].clientX;
     const diff = currentX - touchStartX;
-    const slideWidth = track.clientWidth;
+    const slideWidth = container.clientWidth;
     const percentageMoved = (diff / slideWidth) * 100;
     
     currentTranslateX = startTranslateX + percentageMoved;
-    
-    // Add resistance at the edges
-    if (currentTranslateX > 0) {
-        currentTranslateX = currentTranslateX * 0.3;
-    } else if (currentTranslateX < -(slides.length - 1) * 100) {
-        const overScroll = currentTranslateX + (slides.length - 1) * 100;
-        currentTranslateX = -(slides.length - 1) * 100 + (overScroll * 0.3);
-    }
-    
     setSlidePosition(currentTranslateX);
 }
 
@@ -88,13 +83,23 @@ function handleTouchEnd() {
     isDragging = false;
     
     const diff = currentTranslateX - lastTranslateX;
-    const threshold = 20; // Minimum percentage to trigger slide change
+    const threshold = 15; // Lower threshold for easier swipe
     
     if (Math.abs(diff) > threshold) {
         if (diff > 0) {
-            moveCarousel(-1); // Swipe right
+            if (currentSlide === 0) {
+                // If at first slide and swiping right, go to last slide
+                goToSlide(slides.length - 1);
+            } else {
+                moveCarousel(-1); // Swipe right
+            }
         } else {
-            moveCarousel(1); // Swipe left
+            if (currentSlide === slides.length - 1) {
+                // If at last slide and swiping left, go to first slide
+                goToSlide(0);
+            } else {
+                moveCarousel(1); // Swipe left
+            }
         }
     } else {
         // Return to current slide if threshold not met
@@ -102,11 +107,11 @@ function handleTouchEnd() {
     }
 }
 
-// Add touch event listeners
-if (track) {
-    track.addEventListener('touchstart', handleTouchStart, { passive: true });
-    track.addEventListener('touchmove', handleTouchMove, { passive: true });
-    track.addEventListener('touchend', handleTouchEnd, { passive: true });
+// Add touch event listeners to container instead of track
+if (container) {
+    container.addEventListener('touchstart', handleTouchStart, { passive: true });
+    container.addEventListener('touchmove', handleTouchMove, { passive: false }); // non-passive to prevent scrolling
+    container.addEventListener('touchend', handleTouchEnd, { passive: true });
 }
 
 // Auto advance slides
@@ -118,7 +123,7 @@ function resetAutoAdvance() {
     autoAdvanceInterval = setInterval(() => moveCarousel(1), 8000);
 }
 
-track.addEventListener('touchstart', resetAutoAdvance, { passive: true });
+container.addEventListener('touchstart', resetAutoAdvance, { passive: true });
 
 // Lissajous figure animation
 function initLissajous(canvasId) {
