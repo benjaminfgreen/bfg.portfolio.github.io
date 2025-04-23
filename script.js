@@ -42,16 +42,20 @@ function setSlidePosition(position) {
     track.style.transform = `translateX(${position}%)`;
 }
 
-function moveCarousel(direction) {
+function moveCarousel(direction, isAutoAdvance = false) {
     currentSlide = (currentSlide + direction + slides.length) % slides.length;
     setSlidePosition(-currentSlide * 100);
     updateDots();
+    if (!isAutoAdvance) {
+        resetAutoAdvance(); // Reset timer when manually changing slides
+    }
 }
 
 function goToSlide(index) {
     currentSlide = index;
     setSlidePosition(-currentSlide * 100);
     updateDots();
+    resetAutoAdvance(); // Reset timer when manually changing slides
 }
 
 // Touch event handlers
@@ -114,16 +118,14 @@ if (container) {
     container.addEventListener('touchend', handleTouchEnd, { passive: true });
 }
 
-// Auto advance slides
-let autoAdvanceInterval = setInterval(() => moveCarousel(1), 8000);
+// Auto advance slides with flag for auto movement
+let autoAdvanceInterval = setInterval(() => moveCarousel(1, true), 8000);
 
-// Reset auto advance timer on user interaction
+// Reset auto advance timer
 function resetAutoAdvance() {
     clearInterval(autoAdvanceInterval);
-    autoAdvanceInterval = setInterval(() => moveCarousel(1), 8000);
+    autoAdvanceInterval = setInterval(() => moveCarousel(1, true), 8000);
 }
-
-container.addEventListener('touchstart', resetAutoAdvance, { passive: true });
 
 // Lissajous figure animation
 function initLissajous(canvasId) {
